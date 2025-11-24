@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  text-decoration: none;
+}
+body {
+margin: 0;
+background: linear-gradient(#cacaca73, #cacaca), url(./img/Illustrations\ and\ sketches/sketch2.png);
+background-size: cover;
+background-repeat: no-repeat;
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+padding: 40px;
+}
+.container {
+background: white;
+border-radius: 20px;
+max-width: 1100px;
+width: 100%;
+display: flex;
+overflow: hidden;
+}
+
+
+/* LEFT SIDE */
+.left {
+width: 40%;
+padding: 40px;
+background: #fff;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+
+.left h2 {
+font-size: 22px;
+margin-bottom: 20px;
+}
+
+.info-block {
+margin-bottom: 30px;
+}
+
+.goback{
+margin-bottom: 30px;
+}
+
+.gobackbut a{
+display: flex;
+align-items: center;
+transition: 0.3s;
+font-weight: 900;
+font-size: 2rem;
+color: #111;
+}
+
+
+.gobackbut svg{
+    cursor: pointer;
+    transform: rotate(-90deg);
+    height: 40px;
+    width: 40px;
+}
+
+.goback a:hover{
+    fill: #ff0256;
+    color: #ff0256;
+}
+
+.info-block h3 {
+margin: 0 0 5px;
+font-size: 18px;
+}
+
+
+.info-block p {
+margin: 0;
+color: #444;
+font-size: 14px;
+}
+
+
+.socials {
+display: flex;
+gap: 20px;
+}
+
+
+.socials a {
+width: 40px;
+height: 40px;
+border-radius: 5px;
+cursor: pointer;
+fill: #111;
+transition: 0.3s;
+}
+.socials a:hover{
+    fill: #ff0256;
+}
+
+
+/* RIGHT SIDE FORM */
+.right {
+width: 60%;
+background: #ff0256;
+padding: 60px;
+border-radius: 0 20px 20px 0;
+}
+
+
+.right h1 {
+font-size: 36px;
+margin-bottom: 10px;
+color: white;
+}
+
+
+.right p {
+margin-bottom: 30px;
+font-size: 16px;
+color: white;
+}
+input::placeholder,
+textarea::placeholder {
+  color: #ffffff;  /* Cambia este color */
+}
+
+input, textarea {
+width: 100%;
+border: none;
+color: white;
+border-bottom: 2px solid black;
+background: transparent;
+padding: 10px 0;
+margin-bottom: 25px;
+font-size: 16px;
+}
+
+
+.checkboxes {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+}
+
+#getStartedBtn{
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #111;
+    border: none;
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+#getStartedBtn:hover{
+    background-color: white;
+    color: #111;
+
+}
