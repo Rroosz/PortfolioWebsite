@@ -1,14 +1,28 @@
  const goTopBtn = document.getElementById("goTopBtn");
   const mainDiv = document.getElementById("main");
 
-  // Mostrar botón cuando bajes más allá de #main
+  //animacion del boton top
   window.addEventListener("scroll", () => {
-    if (window.scrollY > mainDiv.offsetHeight) {
+  if (window.scrollY > mainDiv.offsetHeight) {
+    // Mostrar el botón si no está visible
+    if (!goTopBtn.classList.contains("show")) {
+      goTopBtn.classList.remove("hide");
+      goTopBtn.classList.add("show");
       goTopBtn.style.display = "block";
-    } else {
-      goTopBtn.style.display = "none";
     }
-  });
+  } else {
+    // Ocultarlo con animación si está visible
+    if (goTopBtn.classList.contains("show")) {
+      goTopBtn.classList.remove("show");
+      goTopBtn.classList.add("hide");
+
+      // Espera a que termine la animación antes de ocultarlo completamente
+      setTimeout(() => {
+        goTopBtn.style.display = "none";
+      }, 400); // igual a la duración de la animación CSS
+    }
+  }
+});
 
   // Volver arriba con scroll suave
   goTopBtn.addEventListener("click", () => {
