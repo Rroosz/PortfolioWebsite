@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="myshop.css">
+    <title>Tienda</title>
+</head>
+<body>
+
+<header>
+    <div class="tittle">WELCOME TO MY SHOP</div>
+</header>
+
+<nav>
+    <a href="index.html" class="logo">CI</a>
+    <ul>
+        <li><a href="#">My bag</a></li>
+        <li><a href="#">WishList</a></li>
+    </ul>
+</nav>
+
+<div class="product-container" id="lista"></div>
+
+<script type="module">
+  import { cargarProductos } from "./firebase.js";
+
+  const lista = document.getElementById("lista");
+
+  cargarProductos((productos) => {
+    lista.innerHTML = "";
+    productos.forEach((p) => {
+      lista.innerHTML += `
+        <div class="card">
+            <img src="${p.imagen}">
+            <h3>${p.nombre}</h3>
+            <p class="precio">$${p.precio}</p>
+            <p>${p.descripcion}</p>
+        </div>
+      `;
+    });
+  });
+</script>
+</body>
+</html>

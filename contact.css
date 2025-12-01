@@ -124,26 +124,42 @@ margin-bottom: 30px;
 font-size: 16px;
 color: white;
 }
+
 input::placeholder,
 textarea::placeholder {
-  color: #ffffff;  /* Cambia este color */
+  color: #d1d1d1;  /* Cambia este color */
+  padding: 0 10px 0 10px;
 }
 
 input, textarea {
 width: 100%;
 border: none;
 color: white;
-border-bottom: 2px solid black;
-background: transparent;
+background: #111;
+border-radius: 8px;
 padding: 10px 0;
 margin-bottom: 25px;
 font-size: 16px;
 }
 
-
 .checkboxes {
 display: grid;
 grid-template-columns: repeat(2, 1fr);
+}
+
+.checkboxes div {
+    display: flex;  
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    color: white;
+}
+
+.checkboxes div span{
+    width: 100%;
+}
+.service{
+    margin: 0;
 }
 
 #getStartedBtn{
@@ -157,9 +173,11 @@ grid-template-columns: repeat(2, 1fr);
     font-weight: 600;
     cursor: pointer;
     transition: 0.3s;
+    border-radius: 8px;
 }
 #getStartedBtn:hover{
     background-color: white;
     color: #111;
+    transform: scale(1.02);
 
 }

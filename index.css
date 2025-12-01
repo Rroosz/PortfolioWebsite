@@ -21,7 +21,7 @@ body {
   background-color: none;
   height: 5vh;
   position: relative;
-  width: 100%;
+  max-width: 100%;
   display: flex;
   justify-content: end;
   align-items: center;
@@ -276,7 +276,7 @@ body {
 }
 
 .modal-content {
-  background: linear-gradient(#1d1d1d, #330119);
+  background: #111;
   padding: 20px;
   border-radius: 16px;
   max-width: 120vh;
@@ -810,6 +810,133 @@ footer > span > a{
   padding: 15px;
 }
 }
+
+@media screen and (width: 1668px) {
+nav{
+  width: 100%;
+  margin-right: 20px;
+}
+
+.navbar{
+  font-size: 1.2rem;
+  max-width: 1668px;
+}
+
+.main {
+  max-height: 100vh;
+  max-width: 1680px;
+}
+
+.right>h1{
+  font-size: 9rem;
+}
+
+.findme{
+  font-size: 1.2rem;
+}
+
+.tags {
+  border-radius: 12px;
+  width: auto;
+  padding: 15px;
+  
+}
+.tags>span {
+  font-size: 1.2rem;
+}
+.tags>h1{
+  font-size: 1.4rem;
+}
+.links a{
+  font-size: 1.3rem;
+  padding: 8px;
+}
+.myworkh2{
+  font-size: 6rem;
+}
+.mywork{
+  height: 100vh;
+}
+.work-container{
+  width: 100%;
+  padding: 0 200px;
+}
+.work-card{
+  width: 250px;
+  height: 310px;
+}
+.downloadsec{
+  padding: 0 100px;
+  height: 70vh;
+}
+.download h1{
+  font-size: 6rem;
+}
+.resumedesc{
+  font-size: 1.4rem;
+}
+.contsec>img{
+  width: 30%;
+}
+.contact>h1{
+  font-size: 4rem;
+}
+.contactdesc{
+  font-size: 1rem;
+}
+.contsec{
+  margin-top: 10px;
+  height: auto;
+}
+.contbuts{
+  margin-top: 20px;
+}
+.sendemail{
+  font-size: 0.8rem;
+}
+.discuss{
+  font-size: 0.8rem;
+}
+.contactcont{
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+.contactcard{
+  width: 140px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  height: 90px;
+}
+#goTopBtn{
+  padding: 15px;
+}
+}
+.modal-content {
+  background: #111;
+  padding: 20px;
+  border-radius: 16px;
+  max-width: 120vh;
+  width: 100%;
+  max-height: 80vh; 
+  overflow-y: auto;  
+  scrollbar-width: 20px;       
+  scrollbar-color: rgb(255, 0, 98) #222; 
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 0px;
+  margin: 20px 20px 20px 0;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 3.5rem;
+  color: white;
+}
+
 
 
 @media screen and (max-width: 768px) {

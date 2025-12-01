@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Product Register</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<div class="admin-container">
+
+    <h2>Registrer a product</h2>
+
+    <input id="nombre" placeholder="Nombre del producto">
+    <input id="precio" placeholder="Precio" type="number">
+    <input id="descripcion" placeholder="Descripción">
+
+    <input id="imagenURL" placeholder="URL de imagen local (/img/productos/example.png)">
+    <button onclick="registrarProducto()">Guardar Producto</button>
+
+</div>
+
+<script type="module">
+  import { registrarProducto } from "./firebase.js";
+  window.registrarProducto = registrarProducto;
+</script>
+
+
+</script>
+
+</body>
+</html>

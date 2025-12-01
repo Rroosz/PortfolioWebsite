@@ -1,13 +1,24 @@
-// Firebase imports
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
+// ===============================
+// IMPORTS
+// ===============================
+import { 
+  initializeApp 
+} from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
+
 import { 
   getFirestore, 
   collection, 
   doc, 
-  setDoc 
+  setDoc, 
+  addDoc,
+  onSnapshot 
 } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
 
-// Tu configuración de Firebase
+
+
+// ===============================
+// CONFIGURACIÓN FIREBASE
+// ===============================
 const firebaseConfig = {
   apiKey: "AIzaSyCH0uHCCfDaJqVtYb1JVpTcC9-CED_FbFc",
   authDomain: "testfrom-58b86.firebaseapp.com",
@@ -18,42 +29,105 @@ const firebaseConfig = {
   measurementId: "G-3DDMTLWDNC"
 };
 
-// Inicializar Firebase
+
+// ===============================
+// INICIALIZAR APP, DB Y STORAGE
+// ===============================
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+export const db = getFirestore(app);
 
-// Evento del botón
-document.getElementById("getStartedBtn").addEventListener("click", async () => {
-  const name = document.getElementById("username").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const message = document.getElementById("message").value.trim();
 
-  // Obtener checkboxes seleccionadas
+// ============================================================================
+// 1) FORMULARIO DE CONTACTO (PÁGINA PRINCIPAL)
+// ============================================================================
+export async function enviarFormulario() {
+
+  const name = document.getElementById("username")?.value.trim();
+  const email = document.getElementById("email")?.value.trim();
+  const message = document.getElementById("message")?.value.trim();
+
   const selectedServices = [...document.querySelectorAll(".service:checked")]
     .map(cb => cb.value);
 
-  // Validación simple
   if (!name || !email || !message) {
     alert("Por favor llena todos los campos.");
     return;
   }
 
   try {
-    // Generar ID único para cada solicitud
     const customId = "web-contact-request-" + Date.now();
 
     await setDoc(doc(db, "client_requests", customId), {
-      name: name,
-      email: email,
-      message: message,
+      name,
+      email,
+      message,
       services: selectedServices,
       date: new Date(),
       idType: "web-contact-request"
     });
 
     alert("¡Tu información fue enviada con éxito!");
+
   } catch (err) {
     console.error("Error al guardar:", err);
     alert("Hubo un error al enviar la información.");
   }
-});
+}
+
+
+export async function registrarProducto() {
+
+  const nombre = document.getElementById("nombre")?.value;
+  const precio = parseFloat(document.getElementById("precio")?.value);
+  const descripcion = document.getElementById("descripcion")?.value;
+  const imagenURL = document.getElementById("imagenURL")?.value;
+
+  if (!nombre || !precio || !descripcion || !imagenURL) {
+    alert("Llena todos los campos.");
+    return;
+  }
+
+  try {
+    await addDoc(collection(db, "productos"), {
+      nombre,
+      precio,
+      descripcion,
+      imagen: imagenURL,   // ⬅️ Guardamos la URL local
+      fecha: new Date()
+    });
+
+    alert("Producto registrado con éxito");
+
+  } catch (error) {
+    console.error("Error al registrar producto:", error);
+    alert("Hubo un error al guardar el producto.");
+  }
+}
+
+
+// ============================================================================
+// 3) CARGAR PRODUCTOS PARA LA TIENDA
+// ============================================================================
+export function cargarProductos(callback) {
+
+  onSnapshot(collection(db, "productos"), (snapshot) => {
+    const lista = [];
+
+    snapshot.forEach((doc) => {
+      lista.push({ id: doc.id, ...doc.data() });
+    });
+
+    callback(lista);
+  });
+
+}
+
+
+// ============================================================================
+// 4) AUTO-ENLACE DEL BOTÓN DEL FORMULARIO (POR SI EXISTE EN LA PÁGINA)
+// ============================================================================
+const btn = document.getElementById("getStartedBtn");
+
+if (btn) {
+  btn.addEventListener("click", enviarFormulario);
+}

@@ -1,0 +1,120 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+header {
+    width: 100%;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tittle{
+    font-size: 7rem;
+    text-align: center;
+    font-weight: 900;
+    color: white;
+    padding: 10px;
+    border-radius: 16px;
+}
+
+nav {
+    width: 100%;
+    background: transparent;
+    padding: 15px 40px;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .logo {
+    color: white;
+    font-size: 3rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: 0.2s;
+    font-weight: 900;
+}
+
+nav ul li a:hover {
+    color: rgb(251, 3, 98);
+}
+
+
+
+
+/* GRID DEL LISTADO */
+#lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+    padding: 40px;
+}
+
+/* CARD */
+.card {
+    background: #ffffffda;
+    backdrop-filter: blur(5px);
+    border-radius: 18px;
+    overflow: hidden;
+    padding-bottom: 20px;
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.12);
+    transition: 0.25s ease;
+    cursor: pointer;
+}
+
+/* EFECTO HOVER */
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+/* IMAGEN */
+.card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+/* NOMBRE DEL PRODUCTO */
+.card h3 {
+    font-size: 20px;
+    margin: 15px 15px 5px 15px;
+    font-weight: 700;
+    color: #111;
+}
+
+/* PRECIO */
+.card .precio {
+    font-size: 18px;
+    margin: 0 15px;
+    color: #ff006a;
+    font-weight: 600;
+}
+
+/* DESCRIPCIÓN */
+.card p:last-of-type {
+    font-size: 14px;
+    margin: 10px 15px 5px 15px;
+    color: #444;
+}
